@@ -39,3 +39,37 @@
 .read-the-docs {
   color: #888;
 }
+
+
+.navBar{
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar__menu{
+  margin-left: 16px;
+  margin-right: 16px;
+  height: 32px;
+  min-width: 48px;
+}
+
+nav{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 92%;
+}
+
+a{
+  text-decoration: none;
+  color: black !important;
+}
+
+body{
+  background-color: rgb(11, 73, 82);
+}
+h1{
+  color: black;
+}
+
+h3{ color: black;}

@@ -1,7 +1,7 @@
 import React from 'react'
-import { Cart } from '../icons/Cart'
+import { Cart } from '../Icons/Cart'
 
-export const CardWidget = () => {
+const CardWidget = () => {
   return (
     <div>
         <Cart />
@@ -9,3 +9,5 @@ export const CardWidget = () => {
     </div>
   )
 }
+
+export default CardWidget
