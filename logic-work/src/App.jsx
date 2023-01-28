@@ -2,6 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
 import NavBar from './componentes/NavBar/NavBar'
+import ItemListConteiner from './componentes/ItemListConteiner/ItemListConteiner'
 
 function App() {
 
@@ -9,7 +10,7 @@ function App() {
     <div className="App">
       <h1>Logic-Work</h1>
       <NavBar />
-     <h3>Bienvenido a Logic Work! los mejores precios del mercado en componentes de pc!</h3>
+     <ItemListConteiner name = "Lautaro"/>
     </div>
   )
 }
