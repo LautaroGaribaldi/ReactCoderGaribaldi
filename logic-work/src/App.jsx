@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBar from './componentes/NavBar/NavBar'
 import ItemListConteiner from './componentes/ItemListConteiner/ItemListConteiner'
 import ItemDetailConteiner from './componentes/ItemDetailConteiner/ItemDetailConteiner';
+import Footer from './componentes/Footer/Footer';
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
 
         <Route path='*' element={ <Navigate to="/"/>} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   )
 }

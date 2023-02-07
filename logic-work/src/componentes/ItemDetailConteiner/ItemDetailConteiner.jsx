@@ -8,7 +8,6 @@ const ItemDetailConteiner = () => {
     const  [productos,setProductos] = useState([])
     const [loading, setLoading] = useState(true)
     const  {idProducto} = useParams()
-    console.log(idProducto)
     useEffect(() =>{
       gFetch()                                    //llamo a lista de productos
       .then(resResultado =>{

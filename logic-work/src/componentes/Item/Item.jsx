@@ -14,14 +14,15 @@ const Item = ({producto}) => {
 
   //Genero las card por medio de las propiedades de mi objeto pasadas por el parametro producto en el itemList.
   return (
-    <Link to={`/detalle/${id}`}>
-      <Card style={{ width: '18rem' }}>
+    <Link to={`/detalle/${id}`} style={{marginTop:"10px"}}>
+      <Card style={{ width: '18rem', marginLeft:"10px", minHeight:"448px" }}>
         <Card.Img variant="top" src={imagen} />
         <Card.Body>
           <Card.Title>{nombre}</Card.Title>
           <Card.Text>
             {descripcion}
           </Card.Text>
+          <span>Precio: ${precio}</span>
           {/* <Button variant="primary" className={id}>Detalle</Button> */}
         </Card.Body>
       </Card>

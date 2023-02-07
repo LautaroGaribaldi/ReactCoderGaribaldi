@@ -4,4 +4,14 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    margin-left: 150px;
+    margin-right: 150px;
+}
+
+body{
+    background-image: url(../../assets/back1.svg);
+    /*background-size:cover;*/
+    background-size: cover;
+    background-repeat: repeat;
+    background-position: center;
 }
