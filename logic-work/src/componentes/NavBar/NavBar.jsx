@@ -1,16 +1,32 @@
 import React from 'react'
-import CardWidget from '../CardWidget/CardWidget'
+import { Link, NavLink } from 'react-router-dom';
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+import CartWidget from '../CartWidget/CartWidget'
+// import style from "./style.css"
 
 export const NavBar = () => {
   return (
-    <div className='navBar'>
-        <nav>
-            <a className='navbar__menu' href="/">Inicio</a>
-            <a className='navbar__menu' href="/">Productos</a>
-            <a className='navbar__menu' href="/">Contactos</a>
-        </nav>
-        <CardWidget />
-    </div>
+
+    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+      <Container>
+        <NavLink to="/">LOGIC-WORK</NavLink>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav className="me-auto">
+            <NavLink to="/categorias/placaDeVideo" className={({ isActive })=> isActive ? "btn btn-primary" :"btn btn-outline-primary" }>Placas de Video</NavLink>
+            <NavLink to="/categorias/procesador" className={({ isActive })=> isActive ? "btn btn-primary" :"btn btn-outline-primary" }>PC armadas</NavLink>
+          </Nav>
+          <Nav>
+            <Nav.Link eventKey={2} href="#memes">
+              <CartWidget/>
+            </Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   )
 }
 
