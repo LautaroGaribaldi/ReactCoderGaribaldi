@@ -16,7 +16,7 @@ export const NavBar = () => {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <NavLink to="/categorias/placaDeVideo" className={({ isActive })=> isActive ? "btn btn-primary" :"btn btn-outline-primary" }>Placas de Video</NavLink>
-            <NavLink to="/categorias/procesador" className={({ isActive })=> isActive ? "btn btn-primary" :"btn btn-outline-primary" }>PC armadas</NavLink>
+            <NavLink to="/categorias/procesador" className={({ isActive })=> isActive ? "btn btn-primary" :"btn btn-outline-primary" }>Procesadores</NavLink>
           </Nav>
           <Nav>
             <Nav.Link eventKey={2} href="#memes">
