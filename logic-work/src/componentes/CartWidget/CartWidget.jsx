@@ -1,11 +1,13 @@
 import React from 'react'
+import { useCartContext } from '../../context/CartContext'
 import { Cart } from '../Icons/Cart'
 
 const CartWidget = () => {
+  const {cantidadTotal} = useCartContext()
   return (
-    <div>
+    <div style={{display:"flex", flexDirection:"column", alignItems:"center", textDecoration:"none"}}>
         <Cart />
-        <span id='cardWidget'>0</span>
+        <span id='cardWidget' style={{}}>{cantidadTotal()}</span>
     </div>
   )
 }

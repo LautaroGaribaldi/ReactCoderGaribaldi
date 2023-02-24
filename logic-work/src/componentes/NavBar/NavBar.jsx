@@ -19,9 +19,9 @@ export const NavBar = () => {
             <NavLink to="/categorias/procesador" className={({ isActive })=> isActive ? "btn btn-primary" :"btn btn-outline-primary" }>Procesadores</NavLink>
           </Nav>
           <Nav>
-            <Nav.Link eventKey={2} href="#memes">
+            <NavLink to="/cart" style={{textDecoration:"none"}}>
               <CartWidget/>
-            </Nav.Link>
+            </NavLink>
           </Nav>
         </Navbar.Collapse>
       </Container>
