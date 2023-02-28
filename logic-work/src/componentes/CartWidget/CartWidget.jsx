@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useCartContext } from '../../context/CartContext'
 import { Cart } from '../Icons/Cart'
 
@@ -7,7 +7,7 @@ const CartWidget = () => {
   return (
     <div style={{display:"flex", flexDirection:"column", alignItems:"center", textDecoration:"none"}}>
         <Cart />
-        <span id='cardWidget' style={{}}>{cantidadTotal()}</span>
+        <span id='cardWidget' style={(cantidadTotal() !== 0 )? {opacity:"100%"} : {opacity:"0%"}}>{cantidadTotal()}</span>
     </div>
   )
 }

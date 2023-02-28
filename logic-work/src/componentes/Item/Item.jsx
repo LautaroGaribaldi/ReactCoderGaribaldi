@@ -1,16 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { memo, useEffect, useState } from 'react'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 
-const Item = ({producto}) => {
+const Item = memo ( ({producto}) => {
   const {id,categoria,nombre,descripcion,precio,imagen} = producto;
-  // const [nombre,setNombre] = useState([])
-  // useEffect(() =>{
-  //   setNombre(producto.nombre)
-  //   console.log(producto)
-  // },[])
-  //console.log(producto)
 
   //Genero las card por medio de las propiedades de mi objeto pasadas por el parametro producto en el itemList.
   return (
@@ -28,6 +22,6 @@ const Item = ({producto}) => {
       </Card>
     </Link>
   )
-}
+} ) 
 
 export default Item

@@ -11,7 +11,7 @@ export const NavBar = () => {
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
-        <NavLink to="/"><img src="../../src/assets/logo.png" alt="caca" style={{width:"100px"}} /></NavLink>
+        <NavLink to="/"><img src="../../src/assets/logo.png" alt="Logo Logic Work" style={{width:"100px"}} /></NavLink>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">

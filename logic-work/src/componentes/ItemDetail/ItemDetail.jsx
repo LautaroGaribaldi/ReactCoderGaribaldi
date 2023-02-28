@@ -46,7 +46,7 @@ const ItemDetail = ({producto}) => {
       //   </Card.Body>
       // </Card>
       <div style={{backgroundColor:"white", marginTop:"50px", display:"flex", flexDirection:"column", flexWrap:"wrap", alignItems:"center"}}>
-        <img src={imagen} alt=""  style={{width: '15rem', textAlign:"center", margin:"auto"}}/>
+        <img src={imagen} alt="Imagen producto"  style={{width: '15rem', textAlign:"center", margin:"auto"}}/>
         <h3>{nombre}</h3>
         <p>{descripcion}</p>
         <span style={{marginBottom:"10px"}}>Precio: ${precio}</span>

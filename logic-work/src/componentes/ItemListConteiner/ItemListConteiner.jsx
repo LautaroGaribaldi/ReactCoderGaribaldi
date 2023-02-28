@@ -39,7 +39,7 @@ const ItemListConteiner = () => {
       <h1 style={{textAlign: "center", marginBottom:"30px", padding:"10px"}}>{titulo}</h1>
       <div className='prod'>
         {/* Verifico si loadign es true(no hay productos cargados) y cuando sea false traigo itemList */}
-        {loading ? <h2>Cargando...</h2>: <ItemList productos = {productos}/>} 
+        {loading ? <img src="/cargando2.gif" alt="Gif cargando" />: <ItemList productos = {productos}/>} 
       </div>
     </div>
   )
