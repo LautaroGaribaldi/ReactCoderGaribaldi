@@ -1,6 +1,8 @@
 import { addDoc, collection, getFirestore } from 'firebase/firestore'
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { useCartContext } from '../../context/CartContext'
 
 const CartConteiner = () => {
@@ -36,6 +38,7 @@ const CartConteiner = () => {
                     }))
         } else {
             console.log(validarDatos()[1])
+            toast.error(validarDatos()[1]);
         }
 
     }
@@ -52,12 +55,12 @@ const CartConteiner = () => {
         let mensaje = ""
         if (formData.nombre == "" || formData.telefono == "" || formData.email == "" || formData.repetirEmail == "") {
             console.log("error. campo vacio!")
-            mensaje = "error. campo vacio!"
+            mensaje = "Error! Verifica que los campos no esten vacios!"
             correcto = false
         } else {
             if (formData.email != formData.repetirEmail) {
                 console.log("los email no coinciden.")
-                mensaje = "los email no coinciden."
+                mensaje = "Los email no coinciden."
                 correcto = false
             } else {
                 console.log("Todos los datos son correctos")
@@ -99,41 +102,48 @@ const CartConteiner = () => {
                     <>
                         <p>TOTAL: ${precioTotal()}</p>
                         <button className='btn btn-outline-danger' onClick={vaciarCarrito}>VACIAR CARRITO</button>
-                        <form onSubmit={agregarOrden} style={{ marginTop: "10px" }}>
-                            <input
-                                type="text"
-                                name="nombre"
-                                placeholder='Ingrese su nombre'
-                                onChange={handleOnChange}
-                                value={formData.nombre}
-                                style={{ marginBottom: "5px", borderColor: (formData.nombre == "") ? "red" : "black   " }}
-                            /><br />
-                            <input
-                                type="text"
-                                name="telefono"
-                                placeholder='Ingrese su telefono'
-                                onChange={handleOnChange}
-                                value={formData.telefono}
-                                style={{ marginBottom: "5px", borderColor: (formData.telefono == "") ? "red" : "black   " }}
-                            /><br />
-                            <input
-                                type="text"
-                                name="email"
-                                placeholder='Ingrese su email'
-                                onChange={handleOnChange}
-                                value={formData.email}
-                                style={{ marginBottom: "5px", borderColor: (formData.email == "" || formData.email != formData.repetirEmail) ? "red" : "black   " }}
-                            /><br />
-                            <input
-                                type="text"
-                                name="repetirEmail"
-                                placeholder='Repetir email'
-                                onChange={handleOnChange}
-                                value={formData.repetirEmail}
-                                style={{ marginBottom: "5px", borderColor: (formData.repetirEmail == "" || formData.email != formData.repetirEmail) ? "red" : "black   " }}
-                            /><br />
-                            <button className='btn btn-outline-success' type='submit'>Generar orden</button>
-                        </form>
+                        <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", width: "100%" }}>
+                            <p>Completa tu orden:</p>
+                            <form onSubmit={agregarOrden} style={{ marginTop: "10px", display: "flex", flexDirection: "column", flexWrap: "wrap", alignItems: "center" }}>
+                                <p>Ingresa tu nombre:</p>
+                                <input
+                                    type="text"
+                                    name="nombre"
+                                    placeholder='Ingrese su nombre'
+                                    onChange={handleOnChange}
+                                    value={formData.nombre}
+                                    style={{ borderColor: (formData.nombre == "") ? "red" : "black   " }}
+                                /><br />
+                                <p>Ingresa tu telefono:</p>
+                                <input
+                                    type="text"
+                                    name="telefono"
+                                    placeholder='Ingrese su telefono'
+                                    onChange={handleOnChange}
+                                    value={formData.telefono}
+                                    style={{ borderColor: (formData.telefono == "") ? "red" : "black   " }}
+                                /><br />
+                                <p>Ingresa tu email:</p>
+                                <input
+                                    type="text"
+                                    name="email"
+                                    placeholder='Ingrese su email'
+                                    onChange={handleOnChange}
+                                    value={formData.email}
+                                    style={{ borderColor: (formData.email == "" || formData.email != formData.repetirEmail) ? "red" : "black   " }}
+                                /><br />
+                                <p>repite tu email:</p>
+                                <input
+                                    type="text"
+                                    name="repetirEmail"
+                                    placeholder='Repetir email'
+                                    onChange={handleOnChange}
+                                    value={formData.repetirEmail}
+                                    style={{ borderColor: (formData.repetirEmail == "" || formData.email != formData.repetirEmail) ? "red" : "black   " }}
+                                /><br />
+                                <button className='btn btn-outline-success' type='submit'>Generar orden</button>
+                            </form>
+                        </div>
                     </>
                 }
             </div>
