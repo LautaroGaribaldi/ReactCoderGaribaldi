@@ -9,7 +9,7 @@
 }
 
 body{
-    background-image: url(../../assets/back1.svg);
+    background-image: url(/back1.svg);
     /*background-size:cover;*/
     background-size: cover;
     background-repeat: repeat;
