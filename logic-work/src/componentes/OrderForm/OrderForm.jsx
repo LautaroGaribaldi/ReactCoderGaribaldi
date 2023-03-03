@@ -30,13 +30,13 @@ const OrderForm = ({ handleBuy }) => {
             const ordersCollection = collection(db, "orders")
             addDoc(ordersCollection, order)
                 .then(resp => idOrder = resp.id)
-                .then(console.log(idOrder))
-                .then(vaciarCarrito())
-                .then(MySwal.fire({
+                .then(resp => MySwal.fire({
                     title: <p>Gracias por su compra!</p>,
                     html: <i>{`Su id de compra es: ${idOrder}`}</i>,
-                    icon: "succes"
+                    icon: "success"
                 }))
+                .then(console.log(idOrder))
+                .then(vaciarCarrito())
                 .catch(err => console.log(err))
                 .finally(() =>
                     setFormData({
@@ -77,15 +77,6 @@ const OrderForm = ({ handleBuy }) => {
         }
         return ([correcto, mensaje])
     }
-
-    // const traerId = () =>{
-    //     const db = getFirestore()                       // conexcion con firestore
-    //     const query = doc(db, "orders", )
-    //     getDoc(query)
-    //         .then(resp => setProducto({ id: resp.id, ...resp.data() }))
-    //         .catch(err => console.log(err))
-    //         .finally(() => setLoading(false))
-    // }
 
     return (
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", width: "100%" }}>

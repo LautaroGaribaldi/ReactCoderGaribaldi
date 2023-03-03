@@ -29,8 +29,10 @@ const CartList = ({ handleBuy }) => {
                         </div>
                     ))}
                     <p>TOTAL: ${precioTotal()}</p>
-                    <button className='btn btn-outline-danger' onClick={vaciarCarrito}>VACIAR CARRITO</button>
-                    <button onClick={handleBuy}>Comprar</button>
+                    <div style={{ display: "flex", flexDirection: "row" }}>
+                        <button onClick={handleBuy} className='btn btn-outline-success' style={{ marginRight: "10px" }} >Comprar</button>
+                        <button className='btn btn-outline-danger' onClick={vaciarCarrito}>VACIAR CARRITO</button>
+                    </div>
                 </>
             }
         </div>
