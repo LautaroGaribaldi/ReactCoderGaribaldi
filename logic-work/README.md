@@ -30,26 +30,4 @@ Aplicacion web ecommerce para comprar componentes de computadora creado en React
 
 ---
 
-### Imagenes
-
----
-
-##### _INDEX_
-
-![alt text](https://www.dropbox.com/s/h0m7hzq4ov2upi3/index.jpg?dl=0)
-
----
-
-##### _Item_
-
-![alt text](https://www.dropbox.com/s/s6lkdv7h1wxzs4r/item.jpg?dl=0)
-
----
-
-##### _Cart_
-
-![alt text](https://www.dropbox.com/s/fk0w4fyx6nq41by/carrito.jpg?dl=0)
-
----
-
 ### Si tienes alguna sugerencia no dudes en hablarme.
