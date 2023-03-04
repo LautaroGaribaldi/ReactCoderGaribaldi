@@ -4,7 +4,7 @@ import { useCartContext } from '../../context/CartContext'
 
 const CartList = ({ handleBuy }) => {
 
-    const { cartList, vaciarCarrito, precioTotal, eliminarProducto, cambiarCantidad } = useCartContext()
+    const { cartList, emptyCart, fullPrice, removeProduct, changeAmount } = useCartContext()
 
     return (
         <div style={{ display: "flex", flexDirection: "column", flexWrap: "wrap", alignItems: "center" }}>
@@ -17,21 +17,21 @@ const CartList = ({ handleBuy }) => {
                 </>
                 :
                 <>
-                    {cartList.map(producto => (
-                        <div key={producto.id} style={{ display: "flex", flexDirection: "row", flexWrap: "wrap", alignItems: "center" }}>
-                            <img src={producto.imagen} alt="imagen producto" style={{ width: "100px" }} />
-                            <p style={{ marginLeft: "10px", marginRight: "10px" }}> - {producto.nombre}</p>
-                            <p style={{ marginLeft: "10px", marginRight: "10px" }}> - ${producto.precio}</p>
-                            <button className='btn btn-outline-primary' onClick={() => cambiarCantidad(producto.id, -1)}>-</button>
-                            <p style={{ marginLeft: "10px", marginRight: "10px" }}>cantidad: {producto.cantidad}</p>
-                            <button className='btn btn-outline-primary' onClick={() => cambiarCantidad(producto.id, 1)}>+</button>
-                            <button className='btn btn-outline-danger' onClick={() => eliminarProducto(producto.id)}>x</button>
+                    {cartList.map(product => (
+                        <div key={product.id} style={{ display: "flex", flexDirection: "row", flexWrap: "wrap", alignItems: "center" }}>
+                            <img src={product.imagen} alt="imagen producto" style={{ width: "100px" }} />
+                            <p style={{ marginLeft: "10px", marginRight: "10px" }}> - {product.nombre}</p>
+                            <p style={{ marginLeft: "10px", marginRight: "10px" }}> - ${product.precio}</p>
+                            <button className='btn btn-outline-primary' onClick={() => changeAmount(product.id, -1)}>-</button>
+                            <p style={{ marginLeft: "10px", marginRight: "10px" }}>cantidad: {product.cantidad}</p>
+                            <button className='btn btn-outline-primary' onClick={() => changeAmount(product.id, 1)}>+</button>
+                            <button className='btn btn-outline-danger' onClick={() => removeProduct(product.id)}>x</button>
                         </div>
                     ))}
-                    <p>TOTAL: ${precioTotal()}</p>
+                    <p>TOTAL: ${fullPrice()}</p>
                     <div style={{ display: "flex", flexDirection: "row" }}>
                         <button onClick={handleBuy} className='btn btn-outline-success' style={{ marginRight: "10px" }} >Comprar</button>
-                        <button className='btn btn-outline-danger' onClick={vaciarCarrito}>VACIAR CARRITO</button>
+                        <button className='btn btn-outline-danger' onClick={emptyCart}>VACIAR CARRITO</button>
                     </div>
                 </>
             }

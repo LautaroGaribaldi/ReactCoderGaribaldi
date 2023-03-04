@@ -4,16 +4,16 @@ import { doc, getDoc, getFirestore } from "firebase/firestore"
 import ItemDetail from '../ItemDetail/ItemDetail'
 
 const ItemDetailConteiner = () => {
-    const [producto, setProducto] = useState([])
+    const [product, setProduct] = useState([])
     const [loading, setLoading] = useState(true)
-    const { idProducto } = useParams()
+    const { idProduct } = useParams()
 
     // para traer 1 producto (itemDetailConteiner)
     useEffect(() => {
         const db = getFirestore()                       // conexcion con firestore
-        const query = doc(db, "Productos", idProducto)
+        const query = doc(db, "Productos", idProduct)
         getDoc(query)
-            .then(resp => setProducto({ id: resp.id, ...resp.data() }))
+            .then(resp => setProduct({ id: resp.id, ...resp.data() }))
             .catch(err => console.log(err))
             .finally(() => setLoading(false))
     }, [])
@@ -21,7 +21,7 @@ const ItemDetailConteiner = () => {
     return (
         <div className='prod'>
             {/* Verifico si loadign es true(no hay productos cargados) y cuando sea false traigo itemList */}
-            {loading ? <img src="/cargando2.gif" alt="Gif cargando" /> : <ItemDetail producto={producto} />}
+            {loading ? <img src="/cargando2.gif" alt="Gif cargando" /> : <ItemDetail product={product} />}
         </div>
     )
 }

@@ -3,11 +3,11 @@ import { useCartContext } from '../../context/CartContext'
 import { Cart } from '../Icons/Cart'
 
 const CartWidget = () => {
-    const { cantidadTotal } = useCartContext()
+    const { totalAmount } = useCartContext()
     return (
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textDecoration: "none" }}>
             <Cart />
-            <span id='cardWidget' style={(cantidadTotal() !== 0) ? { opacity: "100%" } : { opacity: "0%" }}>{cantidadTotal()}</span>
+            <span id='cardWidget' style={(totalAmount() !== 0) ? { opacity: "100%" } : { opacity: "0%" }}>{totalAmount()}</span>
         </div>
     )
 }

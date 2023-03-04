@@ -9,55 +9,55 @@ export const CartContextProvider = ({ children }) => {
 
     const [cartList, setCartList] = useState([])
 
-    const agregarCarrito = (newProducto) => {
-        const idRepetido = cartList.findIndex(producto => producto.id === newProducto.id)
-        if (idRepetido !== -1) {
-            cartList[idRepetido].cantidad += newProducto.cantidad
+    const addCart = (newProduct) => {
+        const repeatedId = cartList.findIndex(product => product.id === newProduct.id)
+        if (repeatedId !== -1) {
+            cartList[repeatedId].cantidad += newProduct.cantidad
             setCartList([...cartList])
         } else {
             setCartList([
                 ...cartList,                                                    // spread operator para agregar a mi array cartList el newProducto
-                newProducto
+                newProduct
             ])
         }
     }
-    const cantidadTotal = () => {
-        return (cartList.reduce((acumulador, producto) => acumulador + producto.cantidad, 0))
+    const totalAmount = () => {
+        return (cartList.reduce((accum, product) => accum + product.cantidad, 0))
     }
-    const precioTotal = () => {
-        return (cartList.reduce((acumulador, producto) => acumulador + (producto.precio * producto.cantidad), 0))
+    const fullPrice = () => {
+        return (cartList.reduce((accum, product) => accum + (product.precio * product.cantidad), 0))
     }
 
-    const eliminarProducto = (id) => {
-        setCartList(cartList.filter(producto => producto.id !== id))
+    const removeProduct = (id) => {
+        setCartList(cartList.filter(product => product.id !== id))
     }
     // Funcion para manejar suma o resta de cantidad de producto en el carrito (gracias a la variable cantidad puedo definir pasandole 1 o -1 si la funcion resta o suma.)
-    const cambiarCantidad = (id, cantidad) => {
-        const indexProducto = cartList.findIndex(producto => producto.id === id) // busco el producto en mi carrito por su id y extraigo su index
-        if (cantidad < 0 && cartList[indexProducto].cantidad == 1) {                // condicion para que si la cantidad baja a 0 lo borre de mi carrito
-            eliminarProducto(id)
+    const changeAmount = (id, amount) => {
+        const indexProduct = cartList.findIndex(product => product.id === id) // busco el producto en mi carrito por su id y extraigo su index
+        if (amount < 0 && cartList[indexProduct].cantidad == 1) {                // condicion para que si la cantidad baja a 0 lo borre de mi carrito
+            removeProduct(id)
         } else {
-            if (cantidad > 0 && cartList[indexProducto].stock > cartList[indexProducto].cantidad) {   // Condicion para que si suma cantidad nunca supere el stock de mi producto
-                cartList[indexProducto].cantidad += cantidad
+            if (amount > 0 && cartList[indexProduct].stock > cartList[indexProduct].cantidad) {   // Condicion para que si suma cantidad nunca supere el stock de mi producto
+                cartList[indexProduct].cantidad += amount
                 setCartList([...cartList])
-            } else if (cantidad < 0) {                                             // si resto y mi cantidad de producto no es 1 debo restar.
-                cartList[indexProducto].cantidad += cantidad
+            } else if (amount < 0) {                                             // si resto y mi cantidad de producto no es 1 debo restar.
+                cartList[indexProduct].cantidad += amount
                 setCartList([...cartList])
             }
         }
     }
 
-    const vaciarCarrito = () => setCartList([])
+    const emptyCart = () => setCartList([])
 
     return (
         <CartContext.Provider value={{                                    // Valores y funciones a globalizar
             cartList,
-            agregarCarrito,
-            vaciarCarrito,
-            cantidadTotal,
-            precioTotal,
-            eliminarProducto,
-            cambiarCantidad
+            addCart,
+            emptyCart,
+            totalAmount,
+            fullPrice,
+            removeProduct,
+            changeAmount
         }}>
             {children}
         </CartContext.Provider>

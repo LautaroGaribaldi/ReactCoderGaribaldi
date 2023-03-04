@@ -8,39 +8,40 @@ import style from "./style.css"
 
 
 const ItemListConteiner = () => {
-    const [productos, setProductos] = useState([])
-    const [titulo, setTitulo] = useState("")
+    const [products, setProducts] = useState([])
+    const [title, setTitle] = useState("")
     const [loading, setLoading] = useState(true)
-    const { idCategoria } = useParams()
+    const { idCategory } = useParams()
 
-    function cambiarTitulo() {
-        if (idCategoria == "placaDeVideo") {
-            setTitulo("Placas de Video")
-        } else if (idCategoria == "procesador") {
-            setTitulo("Procesadores")
+    function changeTitle() {
+        if (idCategory == "placaDeVideo") {
+            setTitle("Placas de Video")
+        } else if (idCategory == "procesador") {
+            setTitle("Procesadores")
         } else {
-            setTitulo("Catalogo")
+            setTitle("Catalogo")
         }
     }
 
     useEffect(() => {
         const db = getFirestore()                       // conexcion con firestore
-        const queryCollections = idCategoria ? collection(db, "Productos") : query(collection(db, "Productos"), orderBy("categoria", "asc"))  // si idCategoria tiene algo no ordeno.
-        const queryFilter = idCategoria ? query(queryCollections, where("categoria", "==", idCategoria)) : queryCollections     // si idCategoria tiene algo, genero filtro.
+        const queryCollections = idCategory ? collection(db, "Productos") : query(collection(db, "Productos"), orderBy("categoria", "asc"))  // si idCategory tiene algo no ordeno.
+        const queryFilter = idCategory ? query(queryCollections, where("categoria", "==", idCategory)) : queryCollections     // si idCategory tiene algo, genero filtro.
         getDocs(queryFilter)                                                                            // Obtengo mis productos
-            .then(resp => setProductos(resp.docs.map(product => ({ id: product.id, ...product.data() }))))     // mapeo productos para generar objetos. spread operator
-            .then(cambiarTitulo())
+            .then(resp => setProducts(resp.docs.map(product => ({ id: product.id, ...product.data() }))))     // mapeo productos para generar objetos. spread operator
+            .then(changeTitle())
             .catch(err => console.log(err))
             .finally(() => setLoading(false))                                                               // seteo loading a false para sacar el cargando
-    }, [idCategoria])                             //si cambia mi parametro idCategoria genero una reRenderizacion
+    }, [idCategory])                             //si cambia mi parametro idCategory genero una reRenderizacion
+
 
 
     return (
         <div>
-            <h1 style={{ textAlign: "center", marginBottom: "30px", padding: "10px" }}>{titulo}</h1>
+            <h1 style={{ textAlign: "center", marginBottom: "30px", padding: "10px" }}>{title}</h1>
             <div className='prod'>
                 {/* Verifico si loadign es true(no hay productos cargados) y cuando sea false traigo itemList */}
-                {loading ? <img src="/cargando2.gif" alt="Gif cargando" /> : <ItemList productos={productos} />}
+                {loading ? <img src="/cargando2.gif" alt="Gif cargando" /> : <ItemList products={products} />}
             </div>
         </div>
     )

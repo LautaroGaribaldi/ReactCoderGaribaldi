@@ -12,19 +12,25 @@ const OrderForm = ({ handleBuy }) => {
         email: "",
         repetirEmail: ""
     })
-    const { cartList, vaciarCarrito, precioTotal } = useCartContext()
+    const { cartList, emptyCart, fullPrice } = useCartContext()
 
     const MySwal = withReactContent(Swal)
 
-    const agregarOrden = (evt) => {
+    const addOrder = (evt) => {
         evt.preventDefault()
         const order = {}
         let idOrder = "vacio"
         //validar datos de formData
-        if (validarDatos()[0]) {
+        if (validateData()[0]) {
+            const dateOrder = new Date()
             order.buyer = formData
             order.items = cartList.map(({ id, nombre, precio, cantidad }) => ({ id, nombre, precio, cantidad }))
-            order.total = precioTotal()
+            order.total = fullPrice()
+            order.date = {
+                dia: `${dateOrder.getDate()}/${(dateOrder.getMonth() + 1)}/${dateOrder.getFullYear()}`,
+                hora: `${dateOrder.getHours() < 10 ? "0" : ""}${dateOrder.getHours()}:${dateOrder.getMinutes() < 10 ? "0" : ""}${dateOrder.getMinutes()}`
+            }
+            //`${dateOrder.getDate()}/${dateOrder.getMonth()}/${dateOrder.getFullYear()} - ${dateOrder.getHours()}:${dateOrder.getMinutes()}`
 
             const db = getFirestore()
             const ordersCollection = collection(db, "orders")
@@ -35,7 +41,7 @@ const OrderForm = ({ handleBuy }) => {
                     html: <i>{`Su id de compra es: ${idOrder}`}</i>,
                     icon: "success"
                 }))
-                .then(vaciarCarrito())
+                .then(emptyCart())
                 .catch(err => console.log(err))
                 .finally(() =>
                     setFormData({
@@ -47,7 +53,7 @@ const OrderForm = ({ handleBuy }) => {
                     handleBuy()
                 )
         } else {
-            toast.error(validarDatos()[1]);
+            toast.error(validateData()[1]);
         }
 
     }
@@ -59,7 +65,7 @@ const OrderForm = ({ handleBuy }) => {
         })
     }
 
-    const validarDatos = () => {
+    const validateData = () => {
         let correcto = false
         let mensaje = ""
         if (formData.nombre == "" || formData.telefono == "" || formData.email == "" || formData.repetirEmail == "") {
@@ -80,7 +86,7 @@ const OrderForm = ({ handleBuy }) => {
     return (
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", width: "100%" }}>
             <p>Completa tu orden:</p>
-            <form onSubmit={agregarOrden} style={{ marginTop: "10px", display: "flex", flexDirection: "column", flexWrap: "wrap", alignItems: "center" }}>
+            <form onSubmit={addOrder} style={{ marginTop: "10px", display: "flex", flexDirection: "column", flexWrap: "wrap", alignItems: "center" }}>
                 <p>Ingresa tu nombre:</p>
                 <input
                     type="text"

@@ -10,8 +10,6 @@ const CartConteiner = () => {
         setBuy(!buy)
     }
 
-    //validarDatos()
-    //console.log(validarDatos())
     return (
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
             <div style={{ minHeight: "500px", backgroundColor: "white", display: "flex", flexDirection: "column", alignItems: "center", minWidth: "50%", padding: "5px", borderRadius: "11px" }}>

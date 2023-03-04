@@ -16,14 +16,14 @@ const InputCount = () => {
     )
 }
 
-const ItemDetail = ({ producto }) => {
-    const { nombre, descripcion, precio, imagen, stock } = producto;
+const ItemDetail = ({ product }) => {
+    const { nombre, descripcion, precio, imagen, stock } = product;
     const [isCount, setIsCount] = useState(true)              // genero el estado de mi boton para poder cambiarlo al apretar comprar.
 
-    const { agregarCarrito } = useCartContext()                // del contextto CartContext extraigo solamente la funcion agregarCarrito.
+    const { addCart } = useCartContext()                // del contextto CartContext extraigo solamente la funcion addCart.
 
     const onAdd = (cant) => {                                              // Funcion agregar productos al carrito.
-        agregarCarrito({ ...producto, cantidad: cant })                      // spread operator para agregar a mi producto la propiedad cantidad, su valor y agregarlo a mi array.
+        addCart({ ...product, cantidad: cant })                      // spread operator para agregar a mi producto la propiedad cantidad, su valor y agregarlo a mi array.
         setIsCount(false)                                                  // Modifico que botones muestro.
 
     }

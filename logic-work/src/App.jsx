@@ -1,8 +1,5 @@
-import { useState } from 'react'
 import { BrowserRouter, Navigate, Route, Routes, } from "react-router-dom";
-import reactLogo from './assets/react.svg'
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import './App.css'
 import NavBar from './componentes/NavBar/NavBar'
 import ItemListConteiner from './componentes/ItemListConteiner/ItemListConteiner'
 import ItemDetailConteiner from './componentes/ItemDetailConteiner/ItemDetailConteiner';
@@ -21,8 +18,8 @@ function App() {
         <ToastContainer />
         <Routes>
           <Route path='/' element={<ItemListConteiner />} />
-          <Route path='/categorias/:idCategoria' element={<ItemListConteiner />} />
-          <Route path='/detalle/:idProducto' element={<ItemDetailConteiner />} />
+          <Route path='/categories/:idCategory' element={<ItemListConteiner />} />
+          <Route path='/detail/:idProduct' element={<ItemDetailConteiner />} />
           <Route path="/cart" element={<CartConteiner />} />
           <Route path='*' element={<Navigate to="/" />} />
         </Routes>
