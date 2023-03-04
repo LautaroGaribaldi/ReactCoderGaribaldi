@@ -30,4 +30,6 @@ Aplicacion web ecommerce para comprar componentes de computadora creado en React
 
 ---
 
+https://logicwork.netlify.app/
+
 ### Si tienes alguna sugerencia no dudes en hablarme.
