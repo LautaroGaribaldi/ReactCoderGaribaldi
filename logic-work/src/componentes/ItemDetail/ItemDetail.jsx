@@ -1,6 +1,4 @@
 import React, { useState } from 'react'
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 import { useCartContext } from '../../context/CartContext';
 import ItemCount from '../ItemCount/ItemCount';
@@ -19,7 +17,7 @@ const InputCount = () => {
 }
 
 const ItemDetail = ({ producto }) => {
-    const { id, categoria, nombre, descripcion, precio, imagen, stock } = producto;
+    const { nombre, descripcion, precio, imagen, stock } = producto;
     const [isCount, setIsCount] = useState(true)              // genero el estado de mi boton para poder cambiarlo al apretar comprar.
 
     const { agregarCarrito } = useCartContext()                // del contextto CartContext extraigo solamente la funcion agregarCarrito.
@@ -31,19 +29,6 @@ const ItemDetail = ({ producto }) => {
     }
 
     return (
-        // <Card style={{ width: '25rem', marginTop:"50px" }}>
-        //   <Card.Img variant="top" src={imagen} />
-        //   <Card.Body>
-        //     <Card.Title>{nombre}</Card.Title>
-        //     <Card.Text>
-        //       {descripcion}
-        //       <br></br>
-        //       <br></br>
-        //       <span>Precio: ${precio}</span>
-        //     </Card.Text>
-        //     <Button variant="primary" className={id}>Comprar</Button>
-        //   </Card.Body>
-        // </Card>
         <div style={{ backgroundColor: "white", marginTop: "50px", display: "flex", flexDirection: "column", flexWrap: "wrap", alignItems: "center" }}>
             <img src={imagen} alt="Imagen producto" style={{ width: '15rem', textAlign: "center", margin: "auto" }} />
             <h3>{nombre}</h3>

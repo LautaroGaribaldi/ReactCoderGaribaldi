@@ -1,4 +1,10 @@
-let productos = [
+
+
+
+//Se cambio el metodo de traer los productos. Se creo una collecion en firebase para cargar los porductos y traerlos. Ya no es necesario gFetch. 03/03/2023
+
+
+/*let productos = [
     {id: "1" ,categoria: "placaDeVideo" ,nombre: "Asus GeForce GTX 1650 TUF GAMING 4Gb" ,descripcion: "ASUS NVIDIA GeForce GTX 1650 TUF GAMING 4Gb GDDR6." ,precio: 200 ,imagen:"https://s3-sa-east-1.amazonaws.com/saasargentina/eZG8mm2FjImE530IA0bC/imagen", stock: 50},
     {id: "2" ,categoria: "placaDeVideo" ,nombre: "Asus Geforce Rtx 3050 Phoenix 8gb" ,descripcion: "ASUS Phoenix GeForce RTX™ 3050 8GB GDDR6" ,precio: 300 ,imagen:"https://hard-digital.com.ar/files/Placa%20De%20Video%20Asus%20Geforce%20Rtx%203050%20Phoenix%208gb%20Ddr6%20Pci%204.0/1.jpg", stock: 32},
     {id: "3" ,categoria: "placaDeVideo" ,nombre: "PNY Geforce Rtx 2060 Super Dual Fan 8gb" ,descripcion: "PNY NVIDIA Geforce Rtx 2060 Super Dual Fan 8gb Ddr6" ,precio: 240 ,imagen:"https://front.dev.malditohard.com.ar/img/migration/PLACA-DE-VIDEO-RTX-2060-SUPER-PNY-DUAL-FAN.webp", stock: 10},
@@ -19,6 +25,6 @@ export const gFetch = (id) =>{
             res( id ? productos.find(producto => producto.id === id) : productos)
         },1500)
     })
-}
+}*/
 
 

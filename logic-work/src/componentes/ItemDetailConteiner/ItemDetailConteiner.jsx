@@ -18,7 +18,6 @@ const ItemDetailConteiner = () => {
             .finally(() => setLoading(false))
     }, [])
 
-    //console.log(productos)
     return (
         <div className='prod'>
             {/* Verifico si loadign es true(no hay productos cargados) y cuando sea false traigo itemList */}

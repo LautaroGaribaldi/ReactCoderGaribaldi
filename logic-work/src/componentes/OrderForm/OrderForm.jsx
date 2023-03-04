@@ -35,7 +35,6 @@ const OrderForm = ({ handleBuy }) => {
                     html: <i>{`Su id de compra es: ${idOrder}`}</i>,
                     icon: "success"
                 }))
-                .then(console.log(idOrder))
                 .then(vaciarCarrito())
                 .catch(err => console.log(err))
                 .finally(() =>

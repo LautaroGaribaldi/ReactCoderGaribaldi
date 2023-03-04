@@ -1,10 +1,9 @@
-import React, { memo, useEffect, useState } from 'react'
-import Button from 'react-bootstrap/Button';
+import React, { memo } from 'react'
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 
 const Item = memo(({ producto }) => {
-    const { id, categoria, nombre, descripcion, precio, imagen } = producto;
+    const { id, nombre, descripcion, precio, imagen } = producto;
 
     //Genero las card por medio de las propiedades de mi objeto pasadas por el parametro producto en el itemList.
     return (
@@ -17,7 +16,6 @@ const Item = memo(({ producto }) => {
                         {descripcion}
                     </Card.Text>
                     <span>Precio: ${precio}</span>
-                    {/* <Button variant="primary" className={id}>Detalle</Button> */}
                 </Card.Body>
             </Card>
         </Link>
