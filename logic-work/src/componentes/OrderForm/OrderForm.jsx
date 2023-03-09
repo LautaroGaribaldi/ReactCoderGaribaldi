@@ -85,45 +85,57 @@ const OrderForm = ({ handleBuy }) => {
 
     return (
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", width: "100%" }}>
-            <p>Completa tu orden:</p>
-            <form onSubmit={addOrder} style={{ marginTop: "10px", display: "flex", flexDirection: "column", flexWrap: "wrap", alignItems: "center" }}>
-                <p>Ingresa tu nombre:</p>
+            <h2 style={{ marginBottom: "20px" }}>Completa tu orden:</h2>
+            <form onSubmit={addOrder} style={{ display: "flex", flexDirection: "column", alignItems: "center", marginBottom: "20px", maxWidth: "500px", padding: "20px", border: "1px solid #ccc", borderRadius: "5px" }}>
+                <label htmlFor="nombre" style={{ marginBottom: "10px" }}>Nombre:</label>
                 <input
                     type="text"
+                    id="nombre"
                     name="nombre"
                     placeholder='Ingrese su nombre'
                     onChange={handleOnChange}
                     value={formData.nombre}
-                    style={{ borderColor: (formData.nombre == "") ? "red" : "black   " }}
-                /><br />
-                <p>Ingresa tu telefono:</p>
+                    style={{ borderColor: (formData.nombre === "") ? "red" : "black", padding: "10px", borderRadius: "5px", marginBottom: "20px", width: "100%", boxSizing: "border-box" }}
+                    required
+                />
+
+                <label htmlFor="telefono" style={{ marginBottom: "10px" }}>Teléfono:</label>
                 <input
-                    type="text"
+                    type="tel"
+                    id="telefono"
                     name="telefono"
-                    placeholder='Ingrese su telefono'
+                    placeholder='Ingrese su teléfono'
                     onChange={handleOnChange}
                     value={formData.telefono}
-                    style={{ borderColor: (formData.telefono == "") ? "red" : "black   " }}
-                /><br />
-                <p>Ingresa tu email:</p>
+                    style={{ borderColor: (formData.telefono === "") ? "red" : "black", padding: "10px", borderRadius: "5px", marginBottom: "20px", width: "100%", boxSizing: "border-box" }}
+                    required
+                />
+
+                <label htmlFor="email" style={{ marginBottom: "10px" }}>Email:</label>
                 <input
-                    type="text"
+                    type="email"
+                    id="email"
                     name="email"
                     placeholder='Ingrese su email'
                     onChange={handleOnChange}
                     value={formData.email}
-                    style={{ borderColor: (formData.email == "" || formData.email != formData.repetirEmail) ? "red" : "black   " }}
-                /><br />
-                <p>repite tu email:</p>
+                    style={{ borderColor: (formData.email === "" || formData.email !== formData.repetirEmail) ? "red" : "black", padding: "10px", borderRadius: "5px", marginBottom: "20px", width: "100%", boxSizing: "border-box" }}
+                    required
+                />
+
+                <label htmlFor="repetirEmail" style={{ marginBottom: "10px" }}>Repite tu email:</label>
                 <input
-                    type="text"
+                    type="email"
+                    id="repetirEmail"
                     name="repetirEmail"
                     placeholder='Repetir email'
                     onChange={handleOnChange}
                     value={formData.repetirEmail}
-                    style={{ borderColor: (formData.repetirEmail == "" || formData.email != formData.repetirEmail) ? "red" : "black   " }}
-                /><br />
-                <button className='btn btn-outline-success' type='submit'>Generar orden</button>
+                    style={{ borderColor: (formData.repetirEmail === "" || formData.email !== formData.repetirEmail) ? "red" : "black", padding: "10px", borderRadius: "5px", marginBottom: "20px", width: "100%", boxSizing: "border-box" }}
+                    required
+                />
+
+                <button className='btn btn-outline-success' type='submit' style={{ marginTop: "20px", padding: "10px", borderRadius: "5px", fontWeight: "bold" }}>Generar orden</button>
             </form>
         </div>
     )

@@ -11,8 +11,8 @@ const CartConteiner = () => {
     }
 
     return (
-        <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-            <div style={{ minHeight: "500px", backgroundColor: "white", display: "flex", flexDirection: "column", alignItems: "center", minWidth: "50%", padding: "5px", borderRadius: "11px" }}>
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", minHeight: "500px" }}>
+            <div style={{ minHeight: "500px", backgroundColor: "white", display: "flex", flexDirection: "column", alignItems: "center", minWidth: "70%", padding: "5px", borderRadius: "11px", marginTop: "100px", border: "#8e32d5", borderWidth: "10px", borderStyle: "solid", boxShadow: "12px 12px 19px 1px rgba(0,0,0,0.75)" }}>
                 {buy ?
                     <>
                         <OrderForm handleBuy={handleBuy} />

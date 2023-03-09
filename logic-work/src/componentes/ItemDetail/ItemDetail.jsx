@@ -29,7 +29,7 @@ const ItemDetail = ({ product }) => {
     }
 
     return (
-        <div style={{ backgroundColor: "white", marginTop: "50px", display: "flex", flexDirection: "column", flexWrap: "wrap", alignItems: "center" }}>
+        <div style={{ backgroundColor: "white", width: "50vw", minWidth: "17rem", marginTop: "100px", display: "flex", flexDirection: "column", flexWrap: "wrap", alignItems: "center", border: "#8e32d5", borderWidth: "10px", borderStyle: "solid", boxShadow: "12px 12px 19px 1px rgba(0,0,0,0.75)" }}>
             <img src={imagen} alt="Imagen producto" style={{ width: '15rem', textAlign: "center", margin: "auto" }} />
             <h3>{nombre}</h3>
             <p>{descripcion}</p>

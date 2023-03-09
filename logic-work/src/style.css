@@ -4,6 +4,7 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    gap: 3rem;
     margin-left: 150px;
     margin-right: 150px;
 }

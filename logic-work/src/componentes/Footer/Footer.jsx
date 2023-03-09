@@ -2,7 +2,7 @@ import React from 'react'
 
 const Footer = () => {
     return (
-        <div style={{ backgroundColor: "rgb(33, 37, 41)", marginTop: "141px" }}>
+        <div style={{ backgroundColor: "rgb(33, 37, 41)", marginTop: "483px" }}>
             <div style={{ display: "flex", flexDirection: "row", justifyContent: "center" }}>
                 <a href="https://www.facebook.com/lautaroxs/" target="_blank"><img src="/icono_facebook.svg"
                     alt="Link a Facebook" /></a>

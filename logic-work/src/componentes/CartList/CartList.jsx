@@ -18,13 +18,13 @@ const CartList = ({ handleBuy }) => {
                 :
                 <>
                     {cartList.map(product => (
-                        <div key={product.id} style={{ display: "flex", flexDirection: "row", flexWrap: "wrap", alignItems: "center" }}>
+                        <div key={product.id} style={{ display: "flex", flexDirection: "row", flexWrap: "wrap", alignItems: "center", padding: "5px", marginBottom: "5px", border: "rgb(73, 79, 84)", borderWidth: "5px", borderStyle: "solid", borderRadius: "15px" }}>
                             <img src={product.imagen} alt="imagen producto" style={{ width: "100px" }} />
-                            <p style={{ marginLeft: "10px", marginRight: "10px" }}> - {product.nombre}</p>
+                            <p style={{ marginLeft: "10px", marginRight: "10px", width: "20rem" }}> - {product.nombre}</p>
                             <p style={{ marginLeft: "10px", marginRight: "10px" }}> - ${product.precio}</p>
                             <button className='btn btn-outline-primary' onClick={() => changeAmount(product.id, -1)}>-</button>
                             <p style={{ marginLeft: "10px", marginRight: "10px" }}>cantidad: {product.cantidad}</p>
-                            <button className='btn btn-outline-primary' onClick={() => changeAmount(product.id, 1)}>+</button>
+                            <button style={{ marginRight: "30px" }} className='btn btn-outline-primary' onClick={() => changeAmount(product.id, 1)}>+</button>
                             <button className='btn btn-outline-danger' onClick={() => removeProduct(product.id)}>x</button>
                         </div>
                     ))}

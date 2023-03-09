@@ -4,8 +4,6 @@ import { collection, getDocs, getFirestore, orderBy, query, where } from "fireba
 
 import ItemList from '../ItemList/ItemList'
 
-import style from "./style.css"
-
 
 const ItemListConteiner = () => {
     const [products, setProducts] = useState([])
@@ -37,7 +35,7 @@ const ItemListConteiner = () => {
 
 
     return (
-        <div>
+        <div style={{ marginBottom: "100px" }}>
             <h1 style={{ textAlign: "center", marginBottom: "30px", padding: "10px" }}>{title}</h1>
             <div className='prod'>
                 {/* Verifico si loadign es true(no hay productos cargados) y cuando sea false traigo itemList */}

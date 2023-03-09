@@ -21,12 +21,12 @@ const ItemCount = ({ initial = 1, stock = 10, onAdd }) => {
     return (
         <div style={{ marginBottom: "10px" }}>
             <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "center", marginBottom: "10px", alignItems: "center" }}>
-                <button className={`btn btn-primary ${(stock !== 0) ? "" : "disabled"}`} onClick={sum} >
-                    +
-                </button>
-                <label>{count}</label>
                 <button className={`btn btn-primary ${(stock !== 0) ? "" : "disabled"}`} onClick={subtract}>
                     -
+                </button>
+                <label>{count}</label>
+                <button className={`btn btn-primary ${(stock !== 0) ? "" : "disabled"}`} onClick={sum} >
+                    +
                 </button>
             </div>
             <div>

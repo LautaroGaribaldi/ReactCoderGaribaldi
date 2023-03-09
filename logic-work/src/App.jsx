@@ -8,6 +8,8 @@ import CartConteiner from './componentes/CartConteiner/CartConteiner';
 import { CartContextProvider } from './context/CartContext';
 import { ToastContainer } from 'react-toastify';
 
+import style from "./style.css"
+
 
 function App() {
 
